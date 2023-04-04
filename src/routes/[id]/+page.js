@@ -17,6 +17,10 @@ export async function load({ fetch, params }) {
 		d = doc.data();
 		d.docId = doc.id;
 	});
-	// console.log(d);
-	return d;
+
+	if (d == undefined) {
+		return { status: 'Not Found' };
+	} else {
+		return d;
+	}
 }
